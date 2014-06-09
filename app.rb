@@ -1,5 +1,7 @@
+require './idea'
 require 'bundler'
 Bundler.require
+
 
 class IdeaBox < Sinatra::Base
   
@@ -13,6 +15,12 @@ class IdeaBox < Sinatra::Base
   
   get '/' do
     erb :index
+  end
+  
+  post '/' do
+    idea = Idea.new
+    idea.save
+    "Creating an Idea!"
   end
   
 
